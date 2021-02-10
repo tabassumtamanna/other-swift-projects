@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Roshambo View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="RoshamboViewController" id="BYZ-38-t0r" customClass="RoshamboViewController" customModule="Roshambo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0J4-st-nA6" userLabel="Paper Button">
+                                <rect key="frame" x="169.5" y="299.5" width="75" height="65"/>
+                                <state key="normal" image="paper"/>
+                                <connections>
+                                    <action selector="paperButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="OBR-6P-39h"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmT-kP-RTT" userLabel="Rock Button">
+                                <rect key="frame" x="81" y="376" width="75" height="65"/>
+                                <state key="normal" image="rock"/>
+                                <connections>
+                                    <action selector="rockButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Sl-pW-Jes"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rkt-N1-dgI" userLabel="Scissors Button">
+                                <rect key="frame" x="265" y="376" width="75" height="65"/>
+                                <state key="normal" image="scissors"/>
+                                <connections>
+                                    <segue destination="m4p-2a-Nim" kind="presentation" identifier="rockButton" id="mlt-fp-cx6"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lets Play" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hw1-Qd-JfK">
+                                <rect key="frame" x="164" y="514.5" width="86" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hw1-Qd-JfK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="80" id="GSJ-Kn-pQa"/>
+                            <constraint firstItem="hw1-Qd-JfK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Lvc-6B-4eD"/>
+                            <constraint firstItem="hw1-Qd-JfK" firstAttribute="top" secondItem="0J4-st-nA6" secondAttribute="bottom" constant="150" id="MI2-My-TGx"/>
+                            <constraint firstItem="0J4-st-nA6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QyB-A8-ThU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rkt-N1-dgI" secondAttribute="trailing" constant="74" id="R9R-yl-jmS"/>
+                            <constraint firstItem="hw1-Qd-JfK" firstAttribute="top" secondItem="rkt-N1-dgI" secondAttribute="bottom" constant="73.5" id="Vx7-cn-2Rh"/>
+                            <constraint firstItem="kmT-kP-RTT" firstAttribute="top" secondItem="rkt-N1-dgI" secondAttribute="top" id="WRr-wH-bDB"/>
+                            <constraint firstItem="kmT-kP-RTT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="81" id="ciF-wS-zI8"/>
+                            <constraint firstItem="hw1-Qd-JfK" firstAttribute="top" secondItem="kmT-kP-RTT" secondAttribute="bottom" constant="73.5" id="qBk-lJ-BYW"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="m4p-2a-Nim" kind="modal" identifier="paperClick" id="rPn-OT-xi0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-214" y="-62"/>
+        </scene>
+        <!--Result View Controller-->
+        <scene sceneID="M4q-9w-NxY">
+            <objects>
+                <viewController storyboardIdentifier="ResultViewController" id="m4p-2a-Nim" customClass="ResultViewController" customModule="Roshambo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ekb-gP-vRa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oGh-Ti-1NK">
+                                <rect key="frame" x="162.5" y="451" width="89" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Play Again!"/>
+                                <connections>
+                                    <action selector="dismiss" destination="m4p-2a-Nim" eventType="touchUpInside" id="I1Z-Av-Xzh"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qVo-H9-NQM">
+                                <rect key="frame" x="87" y="225" width="240" height="160"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="mAQ-FB-yNm"/>
+                                    <constraint firstAttribute="height" constant="160" id="pgw-qu-z0v"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Result" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOO-I2-2yp">
+                                <rect key="frame" x="184" y="452" width="47.5" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="HHI-Rd-h08"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yOO-I2-2yp" firstAttribute="centerX" secondItem="ekb-gP-vRa" secondAttribute="centerX" id="KOv-9P-6T4"/>
+                            <constraint firstItem="yOO-I2-2yp" firstAttribute="top" secondItem="qVo-H9-NQM" secondAttribute="bottom" constant="30" id="PLR-x6-uYP"/>
+                            <constraint firstItem="yOO-I2-2yp" firstAttribute="centerY" secondItem="ekb-gP-vRa" secondAttribute="centerY" id="PNM-dY-AfW"/>
+                            <constraint firstItem="oGh-Ti-1NK" firstAttribute="top" secondItem="yOO-I2-2yp" secondAttribute="bottom" constant="20" id="R2R-je-7bp"/>
+                            <constraint firstItem="qVo-H9-NQM" firstAttribute="centerX" secondItem="yOO-I2-2yp" secondAttribute="centerX" id="aFd-4H-nnD"/>
+                            <constraint firstItem="qVo-H9-NQM" firstAttribute="centerX" secondItem="oGh-Ti-1NK" secondAttribute="centerX" id="bjZ-7t-RHQ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="FTh-cU-bBV"/>
+                    <connections>
+                        <outlet property="resultImage" destination="qVo-H9-NQM" id="NEL-Q0-wDt"/>
+                        <outlet property="resultLabel" destination="yOO-I2-2yp" id="ViO-rl-oV8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z9X-Zv-Wfb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="763.768115942029" y="-78.348214285714278"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="mlt-fp-cx6"/>
+    </inferredMetricsTieBreakers>
+    <resources>
+        <image name="paper" width="75" height="65"/>
+        <image name="rock" width="75" height="65"/>
+        <image name="scissors" width="75" height="65"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
