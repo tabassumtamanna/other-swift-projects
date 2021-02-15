@@ -57,6 +57,7 @@
 		A76557E51F8BC1AC00EFF9B8 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		A76557E61F8BC1AC00EFF9B8 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		E904846825D4E7E70050702A /* Mooskine.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Mooskine.xcdatamodel; sourceTree = "<group>"; };
+		E917CD9B25DA23AA002032DF /* Mooskine-2021-02-14-attributingstring.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Mooskine-2021-02-14-attributingstring.xcdatamodel"; sourceTree = "<group>"; };
 		E96FEE4F25D6FE2900A047B2 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		E96FEE5625D8DDBF00A047B2 /* NoteBook+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteBook+Extensions.swift"; sourceTree = "<group>"; };
 		E96FEE5A25D8DE4200A047B2 /* Note+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+Extensions.swift"; sourceTree = "<group>"; };
@@ -565,9 +566,10 @@
 		E904846725D4E7E70050702A /* Mooskine.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				E917CD9B25DA23AA002032DF /* Mooskine-2021-02-14-attributingstring.xcdatamodel */,
 				E904846825D4E7E70050702A /* Mooskine.xcdatamodel */,
 			);
-			currentVersion = E904846825D4E7E70050702A /* Mooskine.xcdatamodel */;
+			currentVersion = E917CD9B25DA23AA002032DF /* Mooskine-2021-02-14-attributingstring.xcdatamodel */;
 			path = Mooskine.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
