@@ -22,6 +22,9 @@
 		A76557E81F8BC1FB00EFF9B8 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A76557E61F8BC1AC00EFF9B8 /* OpenSans-Regular.ttf */; };
 		A76557E91F8BC1FB00EFF9B8 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A76557E41F8BC1AC00EFF9B8 /* OpenSans-Semibold.ttf */; };
 		E904846925D4E7E70050702A /* Mooskine.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E904846725D4E7E70050702A /* Mooskine.xcdatamodeld */; };
+		E917CDA125DA27A9002032DF /* UpdateToAttributedStrings.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = E917CDA025DA27A9002032DF /* UpdateToAttributedStrings.xcmappingmodel */; };
+		E917CDA525DA2833002032DF /* UpdateToAttributedStringsPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E917CDA425DA2833002032DF /* UpdateToAttributedStringsPolicy.swift */; };
+		E917CDA925DA2C25002032DF /* Pathifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E917CDA825DA2C25002032DF /* Pathifier.swift */; };
 		E96FEE5025D6FE2900A047B2 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96FEE4F25D6FE2900A047B2 /* DataController.swift */; };
 		E96FEE5725D8DDBF00A047B2 /* NoteBook+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96FEE5625D8DDBF00A047B2 /* NoteBook+Extensions.swift */; };
 		E96FEE5B25D8DE4200A047B2 /* Note+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96FEE5A25D8DE4200A047B2 /* Note+Extensions.swift */; };
@@ -58,6 +61,9 @@
 		A76557E61F8BC1AC00EFF9B8 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		E904846825D4E7E70050702A /* Mooskine.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Mooskine.xcdatamodel; sourceTree = "<group>"; };
 		E917CD9B25DA23AA002032DF /* Mooskine-2021-02-14-attributingstring.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Mooskine-2021-02-14-attributingstring.xcdatamodel"; sourceTree = "<group>"; };
+		E917CDA025DA27A9002032DF /* UpdateToAttributedStrings.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = UpdateToAttributedStrings.xcmappingmodel; sourceTree = "<group>"; };
+		E917CDA425DA2833002032DF /* UpdateToAttributedStringsPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateToAttributedStringsPolicy.swift; sourceTree = "<group>"; };
+		E917CDA825DA2C25002032DF /* Pathifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pathifier.swift; sourceTree = "<group>"; };
 		E96FEE4F25D6FE2900A047B2 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		E96FEE5625D8DDBF00A047B2 /* NoteBook+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteBook+Extensions.swift"; sourceTree = "<group>"; };
 		E96FEE5A25D8DE4200A047B2 /* Note+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+Extensions.swift"; sourceTree = "<group>"; };
@@ -148,6 +154,9 @@
 				E96FEE5525D8DD5200A047B2 /* Managed Object Extensions */,
 				E904846725D4E7E70050702A /* Mooskine.xcdatamodeld */,
 				E96FEE4F25D6FE2900A047B2 /* DataController.swift */,
+				E917CDA025DA27A9002032DF /* UpdateToAttributedStrings.xcmappingmodel */,
+				E917CDA425DA2833002032DF /* UpdateToAttributedStringsPolicy.swift */,
+				E917CDA825DA2C25002032DF /* Pathifier.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -309,12 +318,15 @@
 			files = (
 				039B105C1EDC5469002EA94F /* AppDelegate.swift in Sources */,
 				03B2699E1F2F8AAA00C7433C /* NotebookCell.swift in Sources */,
+				E917CDA125DA27A9002032DF /* UpdateToAttributedStrings.xcmappingmodel in Sources */,
 				E904846925D4E7E70050702A /* Mooskine.xcdatamodeld in Sources */,
 				03B2699B1F2F8AA100C7433C /* NotebooksListViewController.swift in Sources */,
 				E96FEE5025D6FE2900A047B2 /* DataController.swift in Sources */,
 				03B2699C1F2F8AA100C7433C /* NoteDetailsViewController.swift in Sources */,
 				E96FEE5B25D8DE4200A047B2 /* Note+Extensions.swift in Sources */,
+				E917CDA925DA2C25002032DF /* Pathifier.swift in Sources */,
 				E96FEE5725D8DDBF00A047B2 /* NoteBook+Extensions.swift in Sources */,
+				E917CDA525DA2833002032DF /* UpdateToAttributedStringsPolicy.swift in Sources */,
 				03B269A01F2F8AAD00C7433C /* Cell.swift in Sources */,
 				03B2699D1F2F8AA100C7433C /* NotesListViewController.swift in Sources */,
 				03B2699F1F2F8AAA00C7433C /* NoteCell.swift in Sources */,
