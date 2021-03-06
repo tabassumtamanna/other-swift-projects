@@ -165,6 +165,7 @@ class NotebooksListViewController: UIViewController, UITableViewDataSource {
             if let indexPath = tableView.indexPathForSelectedRow {
                 vc.notebook = fetchedResultsController.object(at: indexPath)
                 vc.dataController = dataController
+                print("NoteBook: \(vc.notebook)")
             }
         }
     }
