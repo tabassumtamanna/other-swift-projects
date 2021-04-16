@@ -16,7 +16,7 @@
 
 import UIKit
 import Firebase
-import FirebaseAuthUI
+import FirebaseUI
 
 // MARK: - FCViewController
 
@@ -70,7 +70,7 @@ class FCViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     func configureDatabase() {
-        // TODO: configure database to sync messages
+        ref = Database.database().reference()
     }
     
     func configureStorage() {
@@ -104,7 +104,7 @@ class FCViewController: UIViewController, UINavigationControllerDelegate {
         if (isSignedIn) {
             
             // remove background blur (will use when showing image messages)
-            messagesTable.rowHeight = UITableViewAutomaticDimension
+            messagesTable.rowHeight = UITableView.automaticDimension
             messagesTable.estimatedRowHeight = 122.0
             backgroundBlur.effect = nil
             messageTextField.delegate = self
@@ -121,7 +121,15 @@ class FCViewController: UIViewController, UINavigationControllerDelegate {
     // MARK: Send Message
     
     func sendMessage(data: [String:String]) {
-        // TODO: create method that pushes message to the firebase database
+        var mdata = data
+        // add name to message and then data to firebase database
+        mdata[Constants.MessageFields.name] = displayName
+        
+        if ref != nil {
+            ref.child("messages").childByAutoId().setValue(mdata)
+        } else {
+            print("No ref!!")
+        }
     }
     
     func sendPhotoMessage(photoData: Data) {
@@ -206,7 +214,7 @@ extension FCViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -246,7 +254,7 @@ extension FCViewController: UIImagePickerControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String:Any]) {
         // constant to hold the information about the photo
-        if let photo = info[UIImagePickerControllerOriginalImage] as? UIImage, let photoData = UIImageJPEGRepresentation(photo, 0.8) {
+        if let photo = info[UIImagePickerController.InfoKey.originalImage.rawValue] as? UIImage, let photoData = photo.jpegData(compressionQuality: 0.8) {
             // call function to upload photo message
             sendPhotoMessage(photoData: photoData)
         }
@@ -304,7 +312,7 @@ extension FCViewController: UITextFieldDelegate {
     }
     
     func keyboardHeight(_ notification: Notification) -> CGFloat {
-        return ((notification as NSNotification).userInfo![UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue.height
+        return ((notification as NSNotification).userInfo![UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue.height
     }
     
     func resignTextfield() {
@@ -319,10 +327,10 @@ extension FCViewController: UITextFieldDelegate {
 extension FCViewController {
     
     func subscribeToKeyboardNotifications() {
-        subscribeToNotification(.UIKeyboardWillShow, selector: #selector(keyboardWillShow))
-        subscribeToNotification(.UIKeyboardWillHide, selector: #selector(keyboardWillHide))
-        subscribeToNotification(.UIKeyboardDidShow, selector: #selector(keyboardDidShow))
-        subscribeToNotification(.UIKeyboardDidHide, selector: #selector(keyboardDidHide))
+        //subscribeToNotification(.UIKeyboardWillShow, selector: #selector(keyboardWillShow))
+        //subscribeToNotification(.UIKeyboardWillHide, selector: #selector(keyboardWillHide))
+        //subscribeToNotification(.UIKeyboardDidShow, selector: #selector(keyboardDidShow))
+        //subscribeToNotification(.UIKeyboardDidHide, selector: #selector(keyboardDidHide))
     }
     
     func subscribeToNotification(_ name: NSNotification.Name, selector: Selector) {
