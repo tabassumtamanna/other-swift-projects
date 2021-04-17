@@ -17,6 +17,7 @@
 import UIKit
 import Firebase
 import FirebaseUI
+import GoogleSignIn
 
 // MARK: - FCViewController
 
@@ -53,10 +54,8 @@ class FCViewController: UIViewController, UINavigationControllerDelegate {
     // MARK: Life Cycle
     
     override func viewDidLoad() {
-        self.signedInStatus(isSignedIn: true)
         
-        configureDatabase()
-        // TODO: Handle what users see when view loads
+        configureAuth()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -67,7 +66,30 @@ class FCViewController: UIViewController, UINavigationControllerDelegate {
     // MARK: Config
     
     func configureAuth() {
-        // TODO: configure firebase authentication
+        let provider: [FUIAuthProvider] = [FUIGoogleAuth()]
+        FUIAuth.defaultAuthUI()?.providers = provider
+        
+        // listen for changes in the authorization state
+        _authHandle = Auth.auth().addStateDidChangeListener { (auth: Auth, user: User?) in
+            // refresh table data
+            self.messages.removeAll(keepingCapacity: false)
+            self.messagesTable.reloadData()
+            
+            // check if there is a current user
+            if let activeUser = user {
+                // check if the current app user is the current FIRUser
+                if self.user != activeUser {
+                    self.user = activeUser
+                    self.signedInStatus(isSignedIn: true)
+                    let name = user!.email!.components(separatedBy: "@")[0]
+                    self.displayName = name
+                }
+            } else {
+                // user must sign in
+                self.signedInStatus(isSignedIn: false)
+                self.loginSession()
+            }
+        }
     }
     
     func configureDatabase() {
@@ -85,6 +107,7 @@ class FCViewController: UIViewController, UINavigationControllerDelegate {
     
     deinit {
         ref.child("messages").removeObserver(withHandle: _refHandle)
+        Auth.auth().removeStateDidChangeListener(_authHandle)
     }
     
     // MARK: Remote Config
@@ -114,6 +137,7 @@ class FCViewController: UIViewController, UINavigationControllerDelegate {
             messagesTable.estimatedRowHeight = 122.0
             backgroundBlur.effect = nil
             messageTextField.delegate = self
+            configureDatabase()
             
             // TODO: Set up app to send and receive messages when signed in
         }
@@ -130,12 +154,8 @@ class FCViewController: UIViewController, UINavigationControllerDelegate {
         var mdata = data
         // add name to message and then data to firebase database
         mdata[Constants.MessageFields.name] = displayName
+        self.ref.child("messages").childByAutoId().setValue(mdata)
         
-        if self.ref != nil {
-            self.ref.child("messages").childByAutoId().setValue(mdata)
-        } else {
-            print("No ref!! \(self.ref)")
-        }
     }
     
     func sendPhotoMessage(photoData: Data) {

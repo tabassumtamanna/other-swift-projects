@@ -22,9 +22,17 @@
  #import <FBSDKCoreKit/FBSDKAppEvents.h>
 #endif
 
+#import <UIKit/UIApplication.h>
+
 #import "FBSDKAppEventsUtility.h"
 
-@class FBSDKGraphRequest;
+@protocol FBSDKGateKeeperManaging;
+@protocol FBSDKAppEventsConfigurationProviding;
+@protocol FBSDKServerConfigurationProviding;
+@protocol FBSDKGraphRequestProviding;
+@protocol FBSDKDataPersisting;
+@protocol FBSDKFeatureChecking;
+@protocol FBSDKLogging;
 
 // Internally known event names
 
@@ -201,6 +209,18 @@ FOUNDATION_EXPORT NSString *const FBSDKAppEventsWKWebViewMessagesPixelIDKey;
 @interface FBSDKAppEvents (Internal)
 
 @property (class, nonatomic, readonly, strong) FBSDKAppEvents *singleton;
+
++ (void)setCanLogEvents;
+
++ (void)setApplicationState:(UIApplicationState)state;
+
++ (void)configureWithGateKeeperManager:(Class<FBSDKGateKeeperManaging>)gateKeeperManager
+        appEventsConfigurationProvider:(Class<FBSDKAppEventsConfigurationProviding>)appEventsConfigurationProvider
+           serverConfigurationProvider:(Class<FBSDKServerConfigurationProviding>)serverConfigurationProvider
+                  graphRequestProvider:(id<FBSDKGraphRequestProviding>)provider
+                        featureChecker:(Class<FBSDKFeatureChecking>)featureChecker
+                                 store:(id<FBSDKDataPersisting>)store
+                                logger:(Class<FBSDKLogging>)logger;
 
 + (void)logInternalEvent:(FBSDKAppEventName)eventName
       isImplicitlyLogged:(BOOL)isImplicitlyLogged;

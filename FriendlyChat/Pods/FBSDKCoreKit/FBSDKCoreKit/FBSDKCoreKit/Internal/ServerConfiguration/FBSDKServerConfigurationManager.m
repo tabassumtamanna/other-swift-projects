@@ -21,10 +21,10 @@
 #import <objc/runtime.h>
 
 #import "FBSDKAppEventsUtility.h"
+#import "FBSDKCoreKit+Internal.h"
 #import "FBSDKGraphRequest.h"
 #import "FBSDKGraphRequest+Internal.h"
 #import "FBSDKImageDownloader.h"
-#import "FBSDKInternalUtility.h"
 #import "FBSDKLogger.h"
 #import "FBSDKServerConfiguration.h"
 #import "FBSDKServerConfiguration+Internal.h"
@@ -131,8 +131,13 @@ typedef NS_OPTIONS(NSUInteger, FBSDKServerConfigurationManagerAppEventsFeatures)
         NSData *data = [defaults objectForKey:defaultsKey];
         if ([data isKindOfClass:[NSData class]]) {
           // decode the configuration
-          FBSDKServerConfiguration *serverConfiguration = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-          if ([serverConfiguration isKindOfClass:[FBSDKServerConfiguration class]]) {
+          id<FBSDKObjectDecoding> unarchiver = [FBSDKUnarchiverProvider createSecureUnarchiverFor:data];
+          FBSDKServerConfiguration *serverConfiguration = nil;
+          @try {
+            serverConfiguration = [unarchiver decodeObjectOfClass:[FBSDKServerConfiguration class] forKey:NSKeyedArchiveRootObjectKey];
+          } @catch (NSException *ex) {
+            // Ignore decoding error
+          } @finally {
             // ensure that the configuration points to the current appID
             if ([serverConfiguration.appID isEqualToString:appID]) {
               _serverConfiguration = serverConfiguration;
@@ -200,7 +205,7 @@ typedef NS_OPTIONS(NSUInteger, FBSDKServerConfigurationManagerAppEventsFeatures)
     dialogConfigurations = [self _parseDialogConfigurations:dialogConfigurations];
     NSDictionary *dialogFlows = [FBSDKTypeUtility dictionaryValue:resultDictionary[FBSDK_SERVER_CONFIGURATION_DIALOG_FLOWS_FIELD]];
     FBSDKErrorConfiguration *errorConfiguration = [[FBSDKErrorConfiguration alloc] initWithDictionary:nil];
-    [errorConfiguration parseArray:resultDictionary[FBSDK_SERVER_CONFIGURATION_ERROR_CONFIGURATION_FIELD]];
+    [errorConfiguration updateWithArray:resultDictionary[FBSDK_SERVER_CONFIGURATION_ERROR_CONFIGURATION_FIELD]];
     NSTimeInterval sessionTimeoutInterval = [FBSDKTypeUtility timeIntervalValue:resultDictionary[FBSDK_SERVER_CONFIGURATION_SESSION_TIMEOUT_FIELD]];
     NSString *loggingToken = [FBSDKTypeUtility stringValue:resultDictionary[FBSDK_SERVER_CONFIGURATION_LOGGIN_TOKEN_FIELD]];
     FBSDKServerConfigurationSmartLoginOptions smartLoginOptions = [FBSDKTypeUtility integerValue:resultDictionary[FBSDK_SERVER_CONFIGURATION_SMART_LOGIN_OPTIONS_FIELD]];

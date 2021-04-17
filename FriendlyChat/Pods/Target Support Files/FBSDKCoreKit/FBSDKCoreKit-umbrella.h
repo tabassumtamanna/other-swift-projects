@@ -17,6 +17,7 @@
 #import "FBSDKJSONValue.h"
 #import "FBSDKLibAnalyzer.h"
 #import "FBSDKSafeCast.h"
+#import "FBSDKSessionProviding.h"
 #import "FBSDKTypeUtility.h"
 #import "FBSDKURLSession.h"
 #import "FBSDKURLSessionTask.h"
@@ -24,6 +25,7 @@
 #import "FBSDKAccessToken.h"
 #import "FBSDKApplicationDelegate.h"
 #import "FBSDKAuthenticationToken.h"
+#import "FBSDKAuthenticationTokenClaims.h"
 #import "FBSDKButton.h"
 #import "FBSDKConstants.h"
 #import "FBSDKCopying.h"
@@ -37,6 +39,7 @@
 #import "FBSDKSettings.h"
 #import "FBSDKTestUsersManager.h"
 #import "FBSDKURL.h"
+#import "FBSDKUserAgeRange.h"
 #import "FBSDKUtility.h"
 #import "FBSDKAppEvents.h"
 #import "FBSDKAppLink.h"
@@ -51,8 +54,12 @@
 #import "FBSDKAppLinkResolving.h"
 #import "FBSDKGraphErrorRecoveryProcessor.h"
 #import "FBSDKGraphRequest.h"
+#import "FBSDKGraphRequestConnecting.h"
+#import "FBSDKGraphRequestConnection+GraphRequestConnecting.h"
 #import "FBSDKGraphRequestConnection.h"
 #import "FBSDKGraphRequestDataAttachment.h"
+#import "FBSDKGraphRequestHTTPMethod.h"
+#import "FBSDKGraphRequestProtocol.h"
 
 FOUNDATION_EXPORT double FBSDKCoreKitVersionNumber;
 FOUNDATION_EXPORT const unsigned char FBSDKCoreKitVersionString[];
