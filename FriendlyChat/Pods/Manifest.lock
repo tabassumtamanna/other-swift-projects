@@ -415,6 +415,7 @@ PODS:
   - SDWebImage/Core (5.11.0)
 
 DEPENDENCIES:
+  - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
   - Firebase/RemoteConfig
@@ -484,6 +485,6 @@ SPEC CHECKSUMS:
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   SDWebImage: 7acbb57630ac7db4a495547fb73916ff3e432f6b
 
-PODFILE CHECKSUM: 4877b7c57ee57af190f7aa2c957ab581b1a1a175
+PODFILE CHECKSUM: 40a281567781597f878c1f11cca456bc9aad10f5
 
 COCOAPODS: 1.10.1

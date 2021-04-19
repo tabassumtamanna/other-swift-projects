@@ -17,7 +17,7 @@
 import UIKit
 import Firebase
 import FirebaseUI
-import GoogleSignIn
+//import GoogleSignIn
 
 // MARK: - FCViewController
 
@@ -54,7 +54,6 @@ class FCViewController: UIViewController, UINavigationControllerDelegate {
     // MARK: Life Cycle
     
     override func viewDidLoad() {
-        
         configureAuth()
     }
     
@@ -66,7 +65,7 @@ class FCViewController: UIViewController, UINavigationControllerDelegate {
     // MARK: Config
     
     func configureAuth() {
-        let provider: [FUIAuthProvider] = [FUIGoogleAuth()]
+        let provider: [FUIAuthProvider] = [FUIGoogleAuth(), FUIEmailAuth()] 
         FUIAuth.defaultAuthUI()?.providers = provider
         
         // listen for changes in the authorization state
