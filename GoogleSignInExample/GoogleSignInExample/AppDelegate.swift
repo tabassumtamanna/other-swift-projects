@@ -10,22 +10,20 @@ import Firebase
 import UIKit
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         FirebaseApp.configure()
-        GIDSignIn.sharedInstance()?.clientID = "634060604574-da5r5mruc1d9ferjro45bjcaqto4s6hs.apps.googleusercontent.com"
-        GIDSignIn.sharedInstance()?.delegate = self
+        GIDSignIn.sharedInstance()?.clientID = FirebaseApp.app()?.options.clientID //"634060604574-da5r5mruc1d9ferjro45bjcaqto4s6hs.apps.googleusercontent.com"
+       
         
         return true
     }
     
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        print("user email: \(user.profile.email ?? "No email")")
-    }
+    
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         return GIDSignIn.sharedInstance().handle(url)

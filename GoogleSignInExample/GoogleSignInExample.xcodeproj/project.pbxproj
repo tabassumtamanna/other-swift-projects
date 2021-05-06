@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		E99F7D6826251AA100B0FE1E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E99F7D6726251AA100B0FE1E /* GoogleService-Info.plist */; };
+		E9ABF66026448E8B008C93C8 /* TaskListUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ABF65F26448E8B008C93C8 /* TaskListUser.swift */; };
+		E9ABF66426448F70008C93C8 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ABF66326448F70008C93C8 /* TaskViewController.swift */; };
 		E9AECEE526251411008ED22E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AECEE426251411008ED22E /* AppDelegate.swift */; };
 		E9AECEE726251411008ED22E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AECEE626251411008ED22E /* SceneDelegate.swift */; };
-		E9AECEE926251411008ED22E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AECEE826251411008ED22E /* ViewController.swift */; };
+		E9AECEE926251411008ED22E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AECEE826251411008ED22E /* LoginViewController.swift */; };
 		E9AECEEC26251411008ED22E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9AECEEA26251411008ED22E /* Main.storyboard */; };
 		E9AECEEE26251414008ED22E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9AECEED26251414008ED22E /* Assets.xcassets */; };
 		E9AECEF126251414008ED22E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9AECEEF26251414008ED22E /* LaunchScreen.storyboard */; };
@@ -21,10 +23,12 @@
 		702F60C01692E48F7E911CBC /* Pods-GoogleSignInExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleSignInExample.release.xcconfig"; path = "Target Support Files/Pods-GoogleSignInExample/Pods-GoogleSignInExample.release.xcconfig"; sourceTree = "<group>"; };
 		A52C5CC65CA8600E3992F6C3 /* Pods_GoogleSignInExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoogleSignInExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E99F7D6726251AA100B0FE1E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E9ABF65F26448E8B008C93C8 /* TaskListUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListUser.swift; sourceTree = "<group>"; };
+		E9ABF66326448F70008C93C8 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		E9AECEE126251411008ED22E /* GoogleSignInExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoogleSignInExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9AECEE426251411008ED22E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9AECEE626251411008ED22E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E9AECEE826251411008ED22E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E9AECEE826251411008ED22E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E9AECEEB26251411008ED22E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E9AECEED26251414008ED22E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E9AECEF026251414008ED22E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -61,6 +65,23 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		E9ABF66226448F4F008C93C8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E9AECEE826251411008ED22E /* LoginViewController.swift */,
+				E9ABF66326448F70008C93C8 /* TaskViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E9ABF66726448F82008C93C8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E9ABF65F26448E8B008C93C8 /* TaskListUser.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		E9AECED826251411008ED22E = {
 			isa = PBXGroup;
 			children = (
@@ -84,7 +105,8 @@
 			children = (
 				E9AECEE426251411008ED22E /* AppDelegate.swift */,
 				E9AECEE626251411008ED22E /* SceneDelegate.swift */,
-				E9AECEE826251411008ED22E /* ViewController.swift */,
+				E9ABF66726448F82008C93C8 /* Models */,
+				E9ABF66226448F4F008C93C8 /* Controllers */,
 				E9AECEEA26251411008ED22E /* Main.storyboard */,
 				E9AECEED26251414008ED22E /* Assets.xcassets */,
 				E9AECEEF26251414008ED22E /* LaunchScreen.storyboard */,
@@ -227,9 +249,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9AECEE926251411008ED22E /* ViewController.swift in Sources */,
+				E9AECEE926251411008ED22E /* LoginViewController.swift in Sources */,
 				E9AECEE526251411008ED22E /* AppDelegate.swift in Sources */,
+				E9ABF66426448F70008C93C8 /* TaskViewController.swift in Sources */,
 				E9AECEE726251411008ED22E /* SceneDelegate.swift in Sources */,
+				E9ABF66026448E8B008C93C8 /* TaskListUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
